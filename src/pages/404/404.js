@@ -74,7 +74,7 @@ export function Page404() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Анимация из Призрака в доспехах (1995)
+                Анимация из Призрака в доспехах(1995)
               </a>
             </div>
           </Fragment>
