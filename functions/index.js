@@ -14,11 +14,11 @@ const ses = new aws.SES({
   region: 'us-east-1',
 });
 
-const ORIGINS = ['https://hamishw.com', 'https://www.hamishw.com'];
+const ORIGINS = ['https://nepersonaj.ru', 'https://nepersonaj.ru'];
 const MAX_EMAIL_LENGTH = 512;
 const MAX_MESSAGE_LENGTH = 4096;
-const EMAIL = 'hello@hamishw.com';
-const FROM_EMAIL = 'mailbot@hamishw.com';
+const EMAIL = 'support@nepersonaj.ru';
+const FROM_EMAIL = 'mailbot@nepersonaj.ru';
 const EMAIL_PATTERN = /(.+)@(.+){2,}\.(.+){2,}/;
 
 app.use(helmet());
@@ -28,7 +28,7 @@ app.use(
     origin: (origin, callback) => {
       if (!ORIGINS.includes(origin)) {
         return callback(
-          new Error(`Not allowed by CORS. Origin must be: ${ORIGINS.join(' or ')}`)
+          new Error(`Не разрешено CORS. Происхождение должно быть: ${ORIGINS.join(' or ')}`)
         );
       }
 
@@ -45,22 +45,22 @@ app.post('/message', async (req, res) => {
 
     // Validate email request
     if (!email || !EMAIL_PATTERN.test(email)) {
-      return res.status(400).json({ error: 'Please enter a valid email address' });
+      return res.status(400).json({ error: 'Пожалуйста, введите действительный адрес электронной почты' });
     }
 
     if (!message) {
-      return res.status(400).json({ error: 'Please enter a message' });
+      return res.status(400).json({ error: 'Пожалуйста, введите сообщение' });
     }
 
     if (email.length > MAX_EMAIL_LENGTH) {
       return res.status(400).json({
-        error: `Please enter an email fewer than ${MAX_EMAIL_LENGTH} characters`,
+        error: `Пожалуйста, в email используйте меньше чем ${MAX_EMAIL_LENGTH} символов`,
       });
     }
 
     if (message.length > MAX_MESSAGE_LENGTH) {
       return res.status(400).json({
-        error: `Please enter a message fewer than ${MAX_MESSAGE_LENGTH} characters`,
+        error: `Пожалуйста, используйте меньше чем ${MAX_MESSAGE_LENGTH} символов`,
       });
     }
 
@@ -71,17 +71,17 @@ app.post('/message', async (req, res) => {
         ToAddresses: [EMAIL],
       },
       Message: {
-        Subject: { Data: `New message from ${email}` },
+        Subject: { Data: `Новое сообщение от ${email}` },
         Body: {
-          Text: { Data: `From: ${email}\n\n${message}` },
+          Text: { Data: `От: ${email}\n\n${message}` },
         },
       },
     });
 
-    return res.status(200).json({ message: 'Message sent successfully' });
+    return res.status(200).json({ message: 'Сообщение успешно отправлено' });
   } catch (error) {
     console.error('Rejected', error);
-    return res.status(500).json({ error: 'Message rejected' });
+    return res.status(500).json({ error: 'Сообщение отклонено' });
   }
 });
 
