@@ -79,7 +79,7 @@ export const Contact = () => {
               as="h1"
               style={getDelay(tokens.base.durationXS, initDelay, 0.3)}
             >
-              <DecoderText text="Say hello" start={status !== 'exited'} delay={300} />
+              <DecoderText text="Оставьте ваше сообщение" start={status !== 'exited'} delay={300} />
             </Heading>
             <Divider
               className={styles.divider}
@@ -92,7 +92,7 @@ export const Contact = () => {
               data-status={status}
               style={getDelay(tokens.base.durationXS, initDelay)}
               autoComplete="email"
-              label="Your Email"
+              label="Введите ваш Email"
               type="email"
               maxLength={512}
               {...email}
@@ -104,7 +104,7 @@ export const Contact = () => {
               data-status={status}
               style={getDelay(tokens.base.durationS, initDelay)}
               autoComplete="off"
-              label="Message"
+              label="Введите ваш текст"
               maxLength={4096}
               {...message}
             />
@@ -133,11 +133,11 @@ export const Contact = () => {
               style={getDelay(tokens.base.durationM, initDelay)}
               disabled={sending}
               loading={sending}
-              loadingText="Sending..."
+              loadingText="Отправляется..."
               icon="send"
               type="submit"
             >
-              Send message
+              Отправить сообщение
             </Button>
           </form>
         )}
@@ -151,7 +151,7 @@ export const Contact = () => {
               className={styles.completeTitle}
               data-status={status}
             >
-              Message Sent
+              Сообщение отправлено
             </Heading>
             <Text
               size="l"
@@ -160,7 +160,7 @@ export const Contact = () => {
               data-status={status}
               style={getDelay(tokens.base.durationXS)}
             >
-              I’ll get back to you within a couple days, sit tight
+              Я свяжусь с вами скоро, ждите пожалуйста.
             </Text>
             <Button
               secondary
@@ -171,7 +171,7 @@ export const Contact = () => {
               href="/"
               icon="chevronRight"
             >
-              Back to homepage
+              Вернуться на главную страницу
             </Button>
           </div>
         )}
@@ -184,13 +184,13 @@ export const Contact = () => {
 function getStatusError({
   status,
   errorMessage,
-  fallback = 'There was a problem with your request',
+  fallback = 'Возникла проблема с вашим запросом',
 }) {
   if (status === 200) return false;
 
   const statuses = {
-    500: 'There was a problem with the server, try again later',
-    404: 'There was a problem connecting to the server. Make sure you are connected to the internet',
+    500: 'Возникла проблема с сервером, повторите попытку позже.',
+    404: 'Возникла проблема с подключением к серверу. Убедитесь, что вы подключены к Интернету',
   };
 
   if (errorMessage) {
