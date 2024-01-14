@@ -22,8 +22,8 @@ export const Uses = () => {
   return (
     <Fragment>
       <Meta
-        title="Uses"
-        description="A list of hardware and software I use to do my thing"
+        title="Используемые инструменты"
+        description="Список аппаратных и программных средств, которые я использую для своей работы"
       />
       <ProjectContainer className={styles.uses}>
         <ProjectBackground
@@ -32,21 +32,18 @@ export const Uses = () => {
           opacity={0.7}
         />
         <ProjectHeader
-          title="Uses"
-          description="A somewhat comprehensive list of tools, apps, hardware, and more that I use on a daily basis to design and code things. And yeah, that is a Johnny Mnemonic GIF in the background."
+          title="Используемые инструменты"
+          description="Относительно полный список инструментов, приложений, аппаратных средств и многого другого, которые я использую ежедневно для дизайна и программирования."
         />
         <ProjectSection padding="none" className={styles.section}>
           <ProjectSectionContent>
             <ProjectTextRow width="m">
-              <ProjectSectionHeading>Design</ProjectSectionHeading>
+              <ProjectSectionHeading>Дизайн</ProjectSectionHeading>
               <ProjectSectionText as="div">
                 <List>
                   <ListItem>
-                    <Link href="https://www.figma.com">Figma</Link> is my primary tool for
-                    UI design these days. Made the switch from Sketch in 2020 and haven’t
-                    looked back. I’ve also created{' '}
-                    <Link href="https://www.figma.com/@hamish">a few plugins</Link> that
-                    you can install.
+                    <Link href="https://www.figma.com">Figma</Link> мой основной инструмент для дизайна пользовательского интерфейса в наши дни. В 2020 году я перешел с Sketch и не смотрю назад. 
+                    {' '}
                   </ListItem>
                   <ListItem>
                     Any motion graphics I create are created in Adobe After Effects. So
