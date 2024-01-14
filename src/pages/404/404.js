@@ -13,8 +13,8 @@ export function Page404() {
   return (
     <section className={styles.page}>
       <Meta
-        title="404 Not Found"
-        description="404 page not found. This page doesn't exist"
+        title="404 Страница не найдена"
+        description="404 страница не найдена. Эта страница не существует"
       />
       <Transition in>
         {visible => (
@@ -36,11 +36,10 @@ export function Page404() {
                   as="h2"
                   level={3}
                 >
-                  <DecoderText text="Error: Redacted" start={visible} delay={300} />
+                  <DecoderText text="Ошибка: Сокрыто" start={visible} delay={300} />
                 </Heading>
                 <Text className={styles.description} data-visible={visible} as="p">
-                  This page could not be found. It either doesn’t exist or was deleted. Or
-                  perhaps you don’t exist.
+                  Эта страница не может быть найдена. Возможно, она не существует или была удалена. Или, возможно, вы не существуете.
                 </Text>
                 <Button
                   secondary
@@ -50,7 +49,7 @@ export function Page404() {
                   href="/"
                   icon="chevronRight"
                 >
-                  Back to homepage
+                  Вернуться на главную
                 </Button>
               </div>
             </div>
@@ -74,7 +73,7 @@ export function Page404() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Animation from Ghost in the Shell (1995)
+                Анимация из Ghost in the Shell (1995)
               </a>
             </div>
           </Fragment>
