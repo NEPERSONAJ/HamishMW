@@ -100,7 +100,7 @@ export const Uses = () => {
         <ProjectSection padding="none" className={styles.section}>
           <ProjectSectionContent>
             <ProjectTextRow stretch width="m">
-              <ProjectSectionHeading>Hardware</ProjectSectionHeading>
+              <ProjectSectionHeading>Техника которую я использую</ProjectSectionHeading>
               <Table>
                 <TableBody>
                   <TableRow>
