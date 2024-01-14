@@ -42,15 +42,13 @@ export const Uses = () => {
               <ProjectSectionText as="div">
                 <List>
                   <ListItem>
-                    <Link href="https://www.figma.com">Figma</Link> мой основной инструмент для дизайна пользовательского интерфейса в наши дни. В 2020 году я перешел с Sketch и не смотрю назад. 
-                    {' '}
+                    <Link href="https://www.figma.com">Figma</Link> - мой основной инструмент для дизайна пользовательского интерфейса. В 2020 году я перешел с Sketch и не смотрю назад.
                   </ListItem>
                   <ListItem>
-                    Любые мои видеоролики создаются в Adobe After Effects. До сих пор я не нашел не-Adobe продукта, который был бы таким же хорошим. Если у кого-то есть предложения, пожалуйста, <Link href="/contact">напишите мне</Link>.
+                    Любые мои анимации создаются в Adobe After Effects. Пока что я не нашел ни одного продукта вне Adobe, который был бы настолько хорош. Если у кого-то есть предложения, пожалуйста, <Link href="/contact">свяжитесь со мной</Link>.
                   </ListItem>
                   <ListItem>
-                    Для создания 3D-моделей я использую{' '}
-                    <Link href="https://www.blender.org/">Блендер</Link>. С версии 2.8 он стал гораздо проще в использовании и во многих отношениях лучше дорогих платных инструментов, таких как 3DS Max или Maya.
+                    Для создания 3D-моделей я использую <Link href="https://www.blender.org/">Blender</Link>. С версии 2.8 он стал гораздо проще в использовании и во многих отношениях превосходит дорогие инструменты, такие как 3DS Max или Maya.
                   </ListItem>
                 </List>
               </ProjectSectionText>
@@ -60,37 +58,29 @@ export const Uses = () => {
         <ProjectSection padding="none" className={styles.section}>
           <ProjectSectionContent>
             <ProjectTextRow width="m">
-              <ProjectSectionHeading>Development</ProjectSectionHeading>
+              <ProjectSectionHeading>Разработка</ProjectSectionHeading>
               <ProjectSectionText as="div">
                 <List>
                   <ListItem>
-                    I use{' '}
-                    <Link href="https://code.visualstudio.com/">Visual Studio Code</Link>{' '}
-                    мой текстовый редактор, использующий тему Atom One Dark и шрифт Operator Mono.
+                    Я использую <Link href="https://code.visualstudio.com/">Visual Studio Code</Link> в качестве текстового редактора, с темой Atom One Dark и шрифтом Operator Mono по умолчанию.
                   </ListItem>
                   <ListItem>
                     Firefox - мой основной браузер как для разработки, так и для общего использования.
                   </ListItem>
                   <ListItem>
-                    <Link href="https://reactjs.org/">React</Link> - моя библиотека для разработки фронтенда на JavaScript. Ментальная модель, ориентированная на компоненты, первой стала для меня истинно понятной в качестве дизайнера.
+                    <Link href="https://reactjs.org/">React</Link> - моя библиотека для разработки фронтенда. Ментальная модель, ориентированная на компоненты, была первой вещью, которая действительно имела смысл для меня как дизайнера.
                   </ListItem>
                   <ListItem>
-                    Для 3D-эффектов и шейдеров изображений я использую{' '}
-                    <Link href="https://threejs.org/">three.js</Link>. У него есть своя кривая обучения, но с его помощью можно создавать действительно мощные вещи.
+                    Для 3D-эффектов и шейдеров изображений я использую <Link href="https://threejs.org/">three.js</Link>. У него есть небольшой порог входа, но с его помощью можно создавать действительно мощные вещи.
                   </ListItem>
                   <ListItem>
-                    Для CSS я использовал множество препроцессоров и решений css-и-js, таких как styled-components, но в настоящее время я использую vanilla CSS{' '}
-                    <Link href="https://postcss.org/">PostCSS</Link> для использования будущих возможностей CSS уже сегодня.
+                    Для CSS я использовал различные препроцессоры и решения css-in-js, такие как styled-components, но в настоящее время я использую обычный CSS с <Link href="https://postcss.org/">PostCSS</Link>, чтобы использовать будущие возможности CSS уже сегодня.
                   </ListItem>
                   <ListItem>
-                    Для анимаций на JavaScript я использую{' '}
-                    <Link href="https://www.framer.com/motion/">Framer Motion</Link>, отличный способ добавить пружинные анимации к React и three.js.
+                    Для анимаций на JavaScript я использую <Link href="https://www.framer.com/motion/">Framer Motion</Link>. Это отличный способ добавить анимации пружинки в React и three.js.
                   </ListItem>
                   <ListItem>
-                    Для создания и тестирования компонентов пользовательского интерфейса в изоляции я использую{' '}
-                    
-                    </Link>
-                    .
+                    Для построения и тестирования компонентов пользовательского интерфейса в изоляции я использую <Link href="https://storybook.js.org/">Storybook</Link>. Посмотрите <Link href="https://storybook.hamishw.com">storybook для этого веб-сайта</Link>.
                   </ListItem>
                 </List>
               </ProjectSectionText>
@@ -100,15 +90,15 @@ export const Uses = () => {
         <ProjectSection padding="none" className={styles.section}>
           <ProjectSectionContent>
             <ProjectTextRow stretch width="m">
-              <ProjectSectionHeading>Техника:</ProjectSectionHeading>
+              <ProjectSectionHeading>Аппаратные средства</ProjectSectionHeading>
               <Table>
                 <TableBody>
                   <TableRow>
-                    <TableHeadCell>CPU</TableHeadCell>
+                    <TableHeadCell>ЦП</TableHeadCell>
                     <TableCell>AMD Ryzen 5800x</TableCell>
                   </TableRow>
                   <TableRow>
-                    <TableHeadCell>GPU</TableHeadCell>
+                    <TableHeadCell>ГПУ</TableHeadCell>
                     <TableCell>MSI Gaming X Trio RTX 3080</TableCell>
                   </TableRow>
                   <TableRow>
