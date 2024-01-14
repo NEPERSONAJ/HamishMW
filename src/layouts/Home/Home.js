@@ -18,7 +18,7 @@ import { ProjectSummary } from 'layouts/Home/ProjectSummary';
 import { useEffect, useRef, useState } from 'react';
 import styles from './Home.module.css';
 
-const disciplines = ['Developer', 'Prototyper', 'Animator', 'Illustrator', 'Modder'];
+const disciplines = ['Сайты', 'Программы', 'Игры', 'Сео', 'Продвижение'];
 
 export const Home = () => {
   const [visibleSections, setVisibleSections] = useState([]);
@@ -68,9 +68,9 @@ export const Home = () => {
   return (
     <div className={styles.home}>
       <Meta
-        title="Designer + Developer"
-        description="Design portfolio of Hamish Williams — a product designer working on web & mobile
-          apps with a focus on motion, experience design, and accessibility."
+        title="Дизайнер + Разработчик"
+        description="Портфолио дизайна @NEPERSONAJ — продуктового дизайнера, работающего над веб- и мобильными
+        приложениями с акцентом на анимацию, дизайн взаимодействия и доступность."
       />
       <Intro
         id="intro"
@@ -83,9 +83,9 @@ export const Home = () => {
         sectionRef={projectOne}
         visible={visibleSections.includes(projectOne.current)}
         index={1}
-        title="Designing the future of education"
-        description="Designing a platform to help educators build better online courseware"
-        buttonText="View project"
+        title="Сайт по накрутке"
+        description="Разработал сайт, который поможет продавать подписчиков, лайков, просмотров, комментариев."
+        buttonText="Читать"
         buttonLink="/projects/smart-sparrow"
         model={{
           type: 'laptop',
@@ -104,10 +104,10 @@ export const Home = () => {
         sectionRef={projectTwo}
         visible={visibleSections.includes(projectTwo.current)}
         index={2}
-        title="Video game progress tracking"
-        description="Design and development for a video game tracking app built in React Native"
-        buttonText="View website"
-        buttonLink="https://gamestack.hamishw.com"
+        title="Сайт с онлайн-записью"
+        description="Создал для клиента сайт для записи на массаж. Удобный, эффективный, поддерживает взаимодействие с клиентами. Поможет развивать бизнес в сфере массажа."
+        buttonText="Смотреть сайт"
+        buttonLink="https://intonus.ru"
         model={{
           type: 'phone',
           alt: 'App login screen',
@@ -128,9 +128,9 @@ export const Home = () => {
         sectionRef={projectThree}
         visible={visibleSections.includes(projectThree.current)}
         index={3}
-        title="Biomedical image collaboration"
-        description="Increasing the amount of collaboration in Slice, an app for biomedical imaging"
-        buttonText="View project"
+        title="Игровая ферма аккаунтов"
+        description="Один клиент поделился со мной своей историей усталости от рутинной работы по созданию стартовых аккаунтов для увлекательной гачи игры. Ежедневное ручное трудоемкое создание аккаунтов стало преградой для него"
+        buttonText="Читать"
         buttonLink="/projects/slice"
         model={{
           type: 'laptop',
