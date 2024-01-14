@@ -74,13 +74,13 @@ export const Uses = () => {
                     Для 3D-эффектов и шейдеров изображений я использую <Link href="https://threejs.org/">three.js</Link>. У него есть небольшой порог входа, но с его помощью можно создавать действительно мощные вещи.
                   </ListItem>
                   <ListItem>
-                    Для CSS я использовал различные препроцессоры и решения css-in-js, такие как styled-components, но в настоящее время я использую обычный CSS с <Link href="https://postcss.org/">PostCSS</Link>, чтобы использовать будущие возможности CSS уже сегодня.
+                    Для CSS я использовал различные препроцессоры и решения css-и-js, такие как styled-components, но в настоящее время я использую обычный CSS с <Link href="https://postcss.org/">PostCSS</Link>, чтобы использовать будущие возможности CSS уже сегодня.
                   </ListItem>
                   <ListItem>
                     Для анимаций на JavaScript я использую <Link href="https://www.framer.com/motion/">Framer Motion</Link>. Это отличный способ добавить анимации пружинки в React и three.js.
                   </ListItem>
                   <ListItem>
-                    Для построения и тестирования компонентов пользовательского интерфейса в изоляции я использую <Link href="https://storybook.js.org/">Storybook</Link>. Посмотрите <Link href="https://storybook.hamishw.com">storybook для этого веб-сайта</Link>.
+                    Для построения и тестирования компонентов пользовательского интерфейса в изоляции я использую <Link href="https://storybook.js.org/">Storybook</Link>.
                   </ListItem>
                 </List>
               </ProjectSectionText>
