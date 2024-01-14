@@ -18,21 +18,16 @@ import styles from './Profile.module.css';
 const ProfileText = ({ visible, titleId }) => (
   <Fragment>
     <Heading className={styles.title} data-visible={visible} level={3} id={titleId}>
-      <DecoderText text="Hi there" start={visible} delay={500} />
+      <DecoderText text="Всем привет" start={visible} delay={500} />
     </Heading>
     <Text className={styles.description} data-visible={visible} size="l" as="p">
-      I’m Hamish, currently I live in Sydney working as a senior product designer at{' '}
-      <Link href="https://www.qwilr.com">Qwilr</Link>. My projects include UX design, UI
-      animations, and icon illustration. Being comfortable with code allows me to rapidly
-      prototype and validate experiences. If you’re interested in the tools and software I
-      use check out my <Link href="/uses">uses page</Link>.
+      Я - NEPERSONAJ. В настоящее время я живу в России и работаю программистом, а также специалистом по SEO. В Telegram вы можете связаться со мной для заказа моих услуг, таких как создание сайтов, SEO-продвижение и разработка программ. <Link href="https://t.me/smmbro24">Ссылка на Telegram</Link>. Мои проекты включают в себя дизайн пользовательского опыта, анимации пользовательского интерфейса и иллюстрации иконок. Удобство в работе с кодом позволяет мне быстро создавать прототипы и проверять опыт взаимодействия. Если вас интересуют инструменты и программное обеспечение, которые я использую, загляните на мою <Link href="/uses">страницу</Link>.
     </Text>
     <Text className={styles.description} data-visible={visible} size="l" as="p">
-      In my spare time I like to practice Brazilian Jiu Jitsu, play video games, and{' '}
-      <Link href="/projects/volkihar-knight">make mods</Link>. I’m always down for hearing
-      about new projects, so feel free to drop me a line.
+      В свободное время мне нравится играть в видеоигры и <Link href="/projects/slice/">создавать программы</Link>. Я всегда открыт для новых проектов, так что не стесняйтесь связаться со мной.
     </Text>
   </Fragment>
+
 );
 
 export const Profile = ({ id, visible, sectionRef }) => {
@@ -62,7 +57,7 @@ export const Profile = ({ id, visible, sectionRef }) => {
                 href="/contact"
                 icon="send"
               >
-                Send me a message
+                Отправить сообщение
               </Button>
             </div>
             <div className={styles.column}>
@@ -74,7 +69,7 @@ export const Profile = ({ id, visible, sectionRef }) => {
                   collapseDelay={1000}
                 />
                 <div className={styles.tagText} data-visible={visible}>
-                  About Me
+                  Обо мне
                 </div>
               </div>
               <div className={styles.image}>
