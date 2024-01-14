@@ -40,10 +40,10 @@ import { Fragment } from 'react';
 import { media } from 'utils/style';
 import styles from './Slice.module.css';
 
-const title = 'Biomedical image collaboration';
+const title = 'Игровая ферма аккаунтов';
 const description =
-  'This project involved designing a better way for biomedical educators and learners to annotate digital slides together.';
-const roles = ['User Research', 'UX Design', 'Interface Design'];
+  'Один клиент поделился со мной своей историей усталости от рутинной работы по созданию стартовых аккаунтов для увлекательной гачи игры. Ежедневное ручное трудоемкое создание аккаунтов стало преградой для него';
+const roles = ['Анализ игры', 'Стратегия', 'Программирование'];
 
 export const Slice = () => {
   return (
@@ -75,16 +75,12 @@ export const Slice = () => {
         <ProjectSection>
           <ProjectSectionColumns centered className={styles.columns}>
             <div className={styles.imagesText}>
-              <ProjectSectionHeading>Bringing it together</ProjectSectionHeading>
+              <ProjectSectionHeading>Начало</ProjectSectionHeading>
               <ProjectSectionText>
-                Teachers needed a better way to create collaborative group activities by
-                annotating slides on Slice. Before starting this project, a layer could
-                only be annotated by a single user, making it difficult for learners to
-                work together.
+              В мире гейминга наступила эпоха перемен, и я, как опытный программист и фрилансер, стал свидетелем твоего вдохновляющего запроса. Один клиент поделился со мной своей историей усталости от рутинной работы по созданию стартовых аккаунтов для увлекательной гачи игры. Ежедневное ручное трудоемкое создание аккаунтов стало преградой на пути к незабываемым игровым приключениям.
               </ProjectSectionText>
               <ProjectSectionText>
-                Our solution was to allow users to be invited to a layer, where they can
-                see others’ annotations and make their own.
+              Встреча с этим клиентом стала точкой отсчета для создания нечто уникального и инновационного. Его запрос на разработку программы, способной автоматизировать процесс создания аккаунтов, обучения персонажей и ежедневного сбора наград, взволновал мои творческие потребности и стал стимулом для создания чего-то по-настоящему удивительного.
               </ProjectSectionText>
             </div>
             <div className={styles.sidebarImages}>
@@ -108,14 +104,9 @@ export const Slice = () => {
         <ProjectSection light>
           <ProjectSectionContent>
             <ProjectTextRow>
-              <ProjectSectionHeading>Improving the experience</ProjectSectionHeading>
+              <ProjectSectionHeading>Этап</ProjectSectionHeading>
               <ProjectSectionText>
-                A problem we heard about often form users was that it was difficult to
-                find images they had previously seen or worked on. To solve this we added
-                a new tab that lists all previously annotated slides. In addition, we
-                added the ability to favorite slides, so if users find an interesting
-                slide they want to annotate later, they can easily save it to their
-                account.
+              Создание этой программы стало настоящим вызовом, который потребовал сочетания выдающихся навыков программирования и глубокого понимания игровой механики. Я стремился к тому, чтобы результат был не просто эффективным, но и элегантным. Программа должна была быть как невидимым волшебством, которое освобождает геймера от тяжкой рутины и позволяет ему полностью наслаждаться игрой.
               </ProjectSectionText>
             </ProjectTextRow>
             <Image
@@ -148,13 +139,9 @@ export const Slice = () => {
               </div>
             </div>
             <div className={styles.gridText}>
-              <ProjectSectionHeading>Meaningful details</ProjectSectionHeading>
+              <ProjectSectionHeading>Подход</ProjectSectionHeading>
               <ProjectSectionText>
-                Marking and annotating areas on high resolution biomedical images is the
-                core experience of the app, and it was easy to get lost or lose sense of
-                scale when zooming in on details. Adding measurements for the perimeter
-                and area of an annotation both helped to communicate the overall scale of
-                the image and how large the annotated feature is in comparison.
+              Процесс разработки включал в себя тщательный анализ игровых механик, создание инновационных алгоритмов и максимальную оптимизацию для обеспечения безупречной производительности. Результатом стал интеллектуальный инструмент, способный не только создавать аккаунты и проходить обучение, но и адаптироваться к изменениям в игровом процессе, обеспечивая долгосрочную и бесперебойную работу.
               </ProjectSectionText>
             </div>
           </ProjectSectionContent>
@@ -162,13 +149,9 @@ export const Slice = () => {
         <ProjectSection>
           <ProjectSectionContent>
             <ProjectTextRow>
-              <ProjectSectionHeading>Project outcomes</ProjectSectionHeading>
+              <ProjectSectionHeading>Отношения</ProjectSectionHeading>
               <ProjectSectionText>
-                Real-time collaborative annotation facilitated better collaboration
-                between learners, and was much easier to run group exercises with the new
-                shared layers feature. Learners gave feedback that is was enjoyable to
-                work together and see what others were doing, and liked how interactive
-                and easy to use the application was.
+              Сотрудничество с этим клиентом превратилось в настоящее приключение, где каждая линия кода стала шагом в направлении к созданию чего-то великолепного. Теперь, благодаря разработанной программе, он может зарабатывать на этой игре без лишних забот и радоваться ежедневным крутым героям на разных аккаунтах.
               </ProjectSectionText>
             </ProjectTextRow>
             <Image
