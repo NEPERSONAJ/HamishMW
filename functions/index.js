@@ -12,7 +12,7 @@ const DOMPurify = createDOMPurify(window);
 const { smtpHost, smtpUser, smtpPass } = process.env;
 
 const mailTransport = nodemailer.createTransport({
-  host: 'smtp.nepersonaj.ru',
+  host: 'mail.nepersonaj.ru',
   port: 587,
   secure: false, // Используйте true, если ваш SMTP-сервер требует безопасного соединения
   auth: {
