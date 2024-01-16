@@ -46,7 +46,8 @@ export const Contact = () => {
         message: `У вас новое сообщение от ${userEmail}:\n\n${userMessage}`,
       };
 
-      await emailjs.sendForm('service_287rj0h', 'template_sc4smdw', form.current, 'user_abc123', templateParams);
+      await emailjs
+        .sendForm('service_287rj0h', 'template_sc4smdw', form.current, 'user_abc123', templateParams);
 
       setComplete(true);
       setSending(false);
@@ -137,7 +138,7 @@ export const Contact = () => {
               data-status={status}
               style={getDelay(tokens.base.durationXS)}
             >
-              I’ll get back to you within a couple days, sit tight
+              I’ll get back to you within a couple of days, sit tight
             </Text>
             <Button
               secondary
