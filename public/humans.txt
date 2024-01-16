@@ -1,29 +1,32 @@
-__  __  __
-\ \ \ \ \/
- \ \/\ \
-  \/  \/
+N     N
+NN    N
+N N   N
+N  N  N
+N   N N
+N    NN
+N     N
 
-The humans.txt file explains the team, technology,
-and graphic assets behind this site humanstxt.org.
+
+Файл humans.txt содержит информацию о команде, технологиях и графических ресурсах этого сайта humanstxt.org.
 
 _______________________________________________________________________________
 
-DESIGNER | デザイナー
+ДИЗАЙНЕР | デザイナー
 
-Hamish Williams
-Hand crafted design & web development
+NEPERSONAJ
+Ручной дизайн и веб-разработка
 
-Design tools:
+Инструменты дизайна:
 Figma
 Photoshop
 Blender
 
-twitter.com/hamishmw
+t.me/smmbro24
 github.com/hamishmw
 
 _______________________________________________________________________________
 
-TECHNOLOGY | テクノロジー
+ТЕХНОЛОГИЯ | テクノロジー
 
 React
 Next.js
@@ -32,7 +35,7 @@ Framer Motion
 
 _______________________________________________________________________________
 
-FONTS | フォント
+ШРИФТЫ | フォント
 
 Gotham
 Hiragino Kaku Gothic
