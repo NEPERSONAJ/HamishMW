@@ -34,7 +34,7 @@ export const Contact = () => {
       console.log('Email:', email.value);
       console.log('Message:', message.value);
 
-      emailjs.sendForm(
+      emailjs
   'service_287rj0h',
   'template_sc4smdw',
   { user_email: email.value, message: message.value },
