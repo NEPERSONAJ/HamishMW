@@ -17,13 +17,15 @@ import emailjs from '@emailjs/browser';
 
 export const Contact = () => {
   const form = useRef();
+  const fromName = useFormInput('');
   const email = useFormInput('');
   const message = useFormInput('');
+
   const [sending, setSending] = useState(false);
   const [complete, setComplete] = useState(false);
   const initDelay = tokens.base.durationS;
 
-  const onSubmit = async (event) => {
+  const onSubmit = async event => {
     event.preventDefault();
 
     if (sending) return;
@@ -31,28 +33,21 @@ export const Contact = () => {
     try {
       setSending(true);
 
-      const userEmail = email.value;
-      const userMessage = message.value;
-
-      if (!userEmail || !userMessage) {
-        console.error("Email and message cannot be empty");
-        setSending(false);
-        return;
-      }
-
-      const templateParams = {
-        to_name: 'Recipient Name', // Замените на имя получателя
-        from_name: 'Your Name', // Замените на ваше имя
-        message: `У вас новое сообщение от ${userEmail}:\n\n${userMessage}`,
-      };
-
-      await emailjs
-        .sendForm('service_287rj0h', 'template_sc4smdw', form.current, 'user_abc123', templateParams);
+      emailjs
+        .sendForm(
+          'service_287rj0h',
+          'template_sc4smdw',
+          form.current,
+          'n2b5zA8w4AP1UL4oS'
+        )
+        .then(res => {
+          console.log(res);
+        });
 
       setComplete(true);
       setSending(false);
     } catch (error) {
-      console.error("Error:", error);
+      // Обработка ошибок
       setSending(false);
     }
   };
@@ -79,6 +74,18 @@ export const Contact = () => {
               className={styles.divider}
               data-status={status}
               style={getDelay(tokens.base.durationXS, initDelay, 0.4)}
+            />
+            <Input
+              required
+              className={styles.input}
+              data-status={status}
+              name="from_name"
+              style={getDelay(tokens.base.durationXS, initDelay)}
+              autoComplete="name"
+              label="Your Name"
+              type="text"
+              maxLength={256}
+              {...fromName}
             />
             <Input
               required
