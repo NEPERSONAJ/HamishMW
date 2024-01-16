@@ -34,20 +34,12 @@ export const Contact = () => {
       console.log('Email:', email.value);
       console.log('Message:', message.value);
 
-      const data = {
-  user_email: email.value,
-  message: message.value,
-};
+      const templateParams = {
+        user_email: email.value,
+        message: message.value,
+      };
 
-emailjs.send('service_287rj0h', 'template_sc4smdw', data, 'n2b5zA8w4AP1UL4oS')
-  .then((response) => {
-    console.log(response);
-  })
-  .catch((error) => {
-    console.error('Error:', error);
-  });
-
-
+      emailjs.send('service_287rj0h', 'template_sc4smdw', templateParams, 'n2b5zA8w4AP1UL4oS')
         .then(res => {
           console.log(res);
         });
@@ -76,7 +68,7 @@ emailjs.send('service_287rj0h', 'template_sc4smdw', data, 'n2b5zA8w4AP1UL4oS')
               as="h1"
               style={getDelay(tokens.base.durationXS, initDelay, 0.3)}
             >
-              <DecoderText text="Скажите привет" start={status !== 'exited'} delay={300} />
+              <DecoderText text="Вы можете написать ко мне" start={status !== 'exited'} delay={300} />
             </Heading>
             <Divider
               className={styles.divider}
