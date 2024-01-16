@@ -23,7 +23,7 @@ export const Contact = () => {
   const [complete, setComplete] = useState(false);
   const initDelay = tokens.base.durationS;
 
-  const onSubmit = async event => {
+  const onSubmit = async (event) => {
     event.preventDefault();
 
     if (sending) return;
@@ -40,22 +40,16 @@ export const Contact = () => {
         return;
       }
 
-      emailjs
-        .sendForm(
-          'service_287rj0h',
-          'template_sc4smdw',
-          form.current,
-          'n2b5zA8w4AP1UL4oS'
-        )
-        .then(res => {
-          console.log(res);
-          setComplete(true);
-          setSending(false);
-        })
-        .catch(error => {
-          console.error("Error sending email:", error);
-          setSending(false);
-        });
+      const templateParams = {
+        to_name: 'Recipient Name', // Замените на имя получателя
+        from_name: 'Your Name', // Замените на ваше имя
+        message: `У вас новое сообщение от ${userEmail}:\n\n${userMessage}`,
+      };
+
+      await emailjs.sendForm('service_287rj0h', 'template_sc4smdw', form.current, 'user_abc123', templateParams);
+
+      setComplete(true);
+      setSending(false);
     } catch (error) {
       console.error("Error:", error);
       setSending(false);
