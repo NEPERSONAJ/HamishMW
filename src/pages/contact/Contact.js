@@ -34,10 +34,11 @@ export const Contact = () => {
       console.log('Email:', email.value);
       console.log('Message:', message.value);
 
-      emailjs.sendForm(
+      const formData = new FormData(form.current);
+emailjs.sendForm(
   'service_287rj0h',
   'template_sc4smdw',
-  form.current.form, // Используйте form.current.form вместо form.current
+  formData,
   'n2b5zA8w4AP1UL4oS'
 )
 
