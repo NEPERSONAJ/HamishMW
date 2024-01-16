@@ -47,13 +47,16 @@ export const Contact = () => {
       //   }),
       // });
       // console.log(form.current);
-      emailjs
-        .sendForm(
-          'service_287rj0h',
-          'template_sc4smdw',
-          form.current,
-          'n2b5zA8w4AP1UL4oS'
-        )
+      emailjs.sendForm(
+  'service_287rj0h',
+  'template_sc4smdw',
+  {
+    user_email: email.value,
+    message: message.value,
+    // Добавьте другие поля, если необходимо
+  },
+  'n2b5zA8w4AP1UL4oS'
+)
         .then(res => {
           // setSenderEmail('');
           // setSenderMsg('');
