@@ -17,22 +17,36 @@ import emailjs from '@emailjs/browser';
 
 export const Contact = () => {
   const form = useRef();
-  const fromName = useFormInput('');
+  // const errorRef = useRef();
   const email = useFormInput('');
   const message = useFormInput('');
 
   const [sending, setSending] = useState(false);
   const [complete, setComplete] = useState(false);
+  // const [statusError, setStatusError] = useState('');
   const initDelay = tokens.base.durationS;
 
   const onSubmit = async event => {
     event.preventDefault();
+    // setStatusError('');
 
     if (sending) return;
 
     try {
       setSending(true);
 
+      // const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/message`, {
+      //   method: 'POST',
+      //   mode: 'cors',
+      //   headers: {
+      //     'Content-Type': 'application/json',
+      //   },
+      //   body: JSON.stringify({
+      //     email: email.value,
+      //     message: message.value,
+      //   }),
+      // });
+      // console.log(form.current);
       emailjs
         .sendForm(
           'service_287rj0h',
@@ -41,22 +55,34 @@ export const Contact = () => {
           'n2b5zA8w4AP1UL4oS'
         )
         .then(res => {
+          // setSenderEmail('');
+          // setSenderMsg('');
           console.log(res);
         });
+
+      // const responseMessage = await response.json();
+
+      // const statusError = getStatusError({
+      //   status: response?.status,
+      //   errorMessage: responseMessage?.error,
+      //   fallback: 'There was a problem sending your message',
+      // });
+
+      // if (statusError) throw new Error(statusError);
 
       setComplete(true);
       setSending(false);
     } catch (error) {
-      // Обработка ошибок
-      setSending(false);
+      // setSending(false);
+      // setStatusError(error.message);
     }
   };
 
   return (
     <Section className={styles.contact}>
       <Meta
-        title="Contact"
-        description="Send me a message if you’re interested in discussing a project or if you just want to say hi"
+        title="Контакт"
+        description="Отправьте мне сообщение, если вы заинтересованы в заказе меня как специалиста или просто хотите сказать привет"
       />
       <Transition unmount in={!complete} timeout={1600}>
         {(visible, status) => (
@@ -68,7 +94,7 @@ export const Contact = () => {
               as="h1"
               style={getDelay(tokens.base.durationXS, initDelay, 0.3)}
             >
-              <DecoderText text="Say hello" start={status !== 'exited'} delay={300} />
+              <DecoderText text="Скажите привет" start={status !== 'exited'} delay={300} />
             </Heading>
             <Divider
               className={styles.divider}
@@ -79,22 +105,10 @@ export const Contact = () => {
               required
               className={styles.input}
               data-status={status}
-              name="from_name"
-              style={getDelay(tokens.base.durationXS, initDelay)}
-              autoComplete="name"
-              label="Your Name"
-              type="text"
-              maxLength={256}
-              {...fromName}
-            />
-            <Input
-              required
-              className={styles.input}
-              data-status={status}
               name="user_email"
               style={getDelay(tokens.base.durationXS, initDelay)}
               autoComplete="email"
-              label="Your Email"
+              label="Ваш электронный адрес"
               type="email"
               maxLength={512}
               {...email}
@@ -106,11 +120,29 @@ export const Contact = () => {
               data-status={status}
               style={getDelay(tokens.base.durationS, initDelay)}
               autoComplete="off"
-              label="Message"
+              label="Сообщение"
               name="message"
               maxLength={4096}
               {...message}
             />
+            {/* <Transition in={statusError} timeout={msToNum(tokens.base.durationM)}>
+              {errorStatus => (
+                <div
+                  className={styles.formError}
+                  data-status={errorStatus}
+                  style={cssProps({
+                    height: errorStatus ? errorRef.current?.offsetHeight : 0,
+                  })}
+                >
+                  <div className={styles.formErrorContent} ref={errorRef}>
+                    <div className={styles.formErrorMessage}>
+                      <Icon className={styles.formErrorIcon} icon="error" />
+                      {statusError}
+                    </div>
+                  </div>
+                </div>
+              )}
+            </Transition> */}
             <Button
               className={styles.button}
               data-status={status}
@@ -118,11 +150,11 @@ export const Contact = () => {
               style={getDelay(tokens.base.durationM, initDelay)}
               disabled={sending}
               loading={sending}
-              loadingText="Sending..."
+              loadingText="Отправка..."
               icon="send"
               type="submit"
             >
-              Send message
+              Отправить сообщение
             </Button>
           </form>
         )}
@@ -136,7 +168,7 @@ export const Contact = () => {
               className={styles.completeTitle}
               data-status={status}
             >
-              Message Sent
+              Сообщение отправлено
             </Heading>
             <Text
               size="l"
@@ -145,7 +177,7 @@ export const Contact = () => {
               data-status={status}
               style={getDelay(tokens.base.durationXS)}
             >
-              I’ll get back to you within a couple of days, sit tight
+              Отвечу вам скоро подождите пожалуйста.
             </Text>
             <Button
               secondary
@@ -156,7 +188,7 @@ export const Contact = () => {
               href="/"
               icon="chevronRight"
             >
-              Back to homepage
+              На главную страницу
             </Button>
           </div>
         )}
@@ -165,6 +197,25 @@ export const Contact = () => {
     </Section>
   );
 };
+
+// function getStatusError({
+//   status,
+//   errorMessage,
+//   fallback = 'There was a problem with your request',
+// }) {
+//   if (status === 200) return false;
+
+//   const statuses = {
+//     500: 'There was a problem with the server, try again later',
+//     404: 'There was a problem connecting to the server. Make sure you are connected to the internet',
+//   };
+
+//   if (errorMessage) {
+//     return errorMessage;
+//   }
+
+//   return statuses[status] || fallback;
+// }
 
 function getDelay(delayMs, offset = numToMs(0), multiplier = 1) {
   const numDelay = msToNum(delayMs) * multiplier;
