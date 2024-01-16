@@ -34,13 +34,12 @@ export const Contact = () => {
       console.log('Email:', email.value);
       console.log('Message:', message.value);
 
-      emailjs
-        .sendForm(
-          'service_287rj0h',
-          'template_sc4smdw',
-          form.current,
-          'n2b5zA8w4AP1UL4oS'
-        )
+      emailjs.sendForm(
+  'service_287rj0h',
+  'template_sc4smdw',
+  { user_email: email.value, message: message.value },
+  'n2b5zA8w4AP1UL4oS'
+)
         .then(res => {
           console.log(res);
         });
