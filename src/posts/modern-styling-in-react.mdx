@@ -235,9 +235,8 @@ function Button({ color, size, primary, children }) {
     opacity: 0.4;
   }
 }
-I like this approach because it helps structure styling, we can see that any class is styling the base element, andy any attribute is styling a state. As for avoiding style clashes, there are better options now that automate the process like [CSS Modules](https://github.com/css-modules/css-modules) which is included out of the box in most React frameworks like Next.js and Create React App.
+Мне нравится этот подход, потому что он помогает структурировать стили. Мы видим, что любой класс стилизует базовый элемент, и любой атрибут стилизует состояние. Что касается избегания столкновения стилей, сейчас есть лучшие варианты, которые автоматизируют процесс, такие как [CSS Modules](https://github.com/css-modules/css-modules), который включен по умолчанию в большинство фреймворков React, такие как Next.js и Create React App.
 
-Of course, these techniques don't require you to _only_ use vanilla CSS, you can just as easily combine them with CSS-in-JS or a pre-processor. However with new features like [nesting](https://www.w3.org/TR/css-nesting-1/) and [relative colors](https://www.w3.org/TR/css-color-5/#relative-colors) I think it's becoming less necessary to reach for these tools.
+Конечно, эти техники не требуют от вас использования _только_ ванильного CSS, вы также можете легко комбинировать их с CSS-in-JS или предварительным процессором. Однако с новыми функциями, такими как [вложенность](https://www.w3.org/TR/css-nesting-1/) и [относительные цвета](https://www.w3.org/TR/css-color-5/#relative-colors), я думаю, что все менее необходимо прибегать к этим инструментам.
 
-The entirety of this website is styled using these techniques, so if you want to see an example of how this applies to some real components, take a gander at the [source code](https://github.com/HamishMW/portfolio).
 
