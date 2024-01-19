@@ -50,7 +50,7 @@ const ArticlesPost = ({
     >
       {featured && (
         <Text className={styles.postLabel} size="s">
-          Featured
+          Рекомендуемые
         </Text>
       )}
       {featured && !!banner && (
@@ -84,7 +84,7 @@ const ArticlesPost = ({
             </Text>
             <div className={styles.postFooter}>
               <Button secondary iconHoverShift icon="chevronRight" as="div">
-                Read article
+                Читать статью
               </Button>
               <Text className={styles.timecode} size="s">
                 {timecode}
@@ -113,7 +113,7 @@ const SkeletonPost = ({ index }) => {
         <div className={styles.postDetails}>
           <div aria-hidden className={styles.postDate}>
             <Divider notchWidth="64px" notchHeight="8px" />
-            Coming soon...
+            Скоро..
           </div>
           <Heading
             className={styles.skeletonBone}
@@ -129,7 +129,7 @@ const SkeletonPost = ({ index }) => {
           />
           <div className={styles.postFooter}>
             <Button secondary iconHoverShift icon="chevronRight" as="div">
-              Read more
+              Читать далее
             </Button>
             <Text className={styles.timecode} size="s">
               00:00:00:00
@@ -174,8 +174,8 @@ export const Articles = ({ posts, featured }) => {
   return (
     <article className={styles.articles}>
       <Meta
-        title="Articles"
-        description="A collection of technical design and development articles. May contain incoherent ramblings."
+        title="Статьи"
+        description="Сборник статей по техническому проектированию и разработке. Может содержать бессвязный бред."
       />
       <Section className={styles.content}>
         {!isSingleColumn && (
