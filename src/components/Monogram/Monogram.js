@@ -12,7 +12,7 @@ export const Monogram = forwardRef(({ highlight, className, ...props }, ref) => 
       className={classes(styles.monogram, className)}
       width="46"
       height="29"
-      viewBox="0 0 46 29"
+      viewBox="0 0 92 58"
 
       ref={ref}
       {...props}
