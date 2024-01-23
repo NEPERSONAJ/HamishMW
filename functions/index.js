@@ -17,7 +17,7 @@ const mailTransport = nodemailer.createTransport({
   secure: false, // Используйте true, если ваш SMTP-сервер требует безопасного соединения
   auth: {
     user: 'support@nepersonaj.ru',
-    pass: 'SsDA@EDS2sder#s',
+    pass: 'SsDA@dasdadasada',
   },
 });
 
