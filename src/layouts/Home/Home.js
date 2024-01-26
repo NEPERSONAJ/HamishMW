@@ -84,12 +84,12 @@ export const Home = () => {
         visible={visibleSections.includes(projectOne.current)}
         index={1}
         title="Сайт по накрутке"
-        description="Разработал сайт, который поможет продавать подписчиков, лайков, просмотров, комментариев."
+        description="Одним из сайтов, который я разработал для клиента, является ресурс, направленный на продажу подписчиков, лайков, просмотров и комментариев."
         buttonText="Читать"
         buttonLink="/projects/smart-sparrow"
         model={{
           type: 'laptop',
-          alt: 'Smart Sparrow lesson builder',
+          alt: 'Сайт накрутки лайков и подписчиков',
           textures: [
             {
               srcSet: [sprTexture, sprTextureLarge],
@@ -110,7 +110,7 @@ export const Home = () => {
         buttonLink="https://intonus.ru"
         model={{
           type: 'phone',
-          alt: 'App login screen',
+          alt: 'Сайт записи на массаж',
           textures: [
             {
               srcSet: [gamestackTexture, gamestackTextureLarge],
@@ -129,12 +129,12 @@ export const Home = () => {
         visible={visibleSections.includes(projectThree.current)}
         index={3}
         title="Игровая ферма аккаунтов"
-        description="Один клиент поделился со мной своей историей усталости от рутинной работы по созданию стартовых аккаунтов для увлекательной гачи игры. Ежедневное ручное трудоемкое создание аккаунтов стало преградой для него"
+        description="Один клиент поделился со мной своей историей усталости от рутинной работы по созданию стартовых аккаунтов для некой игры. Ежедневное ручное трудоемкое создание аккаунтов стало преградой для него"
         buttonText="Читать"
         buttonLink="/projects/slice"
         model={{
           type: 'laptop',
-          alt: 'Annotating a biomedical image in the Slice app',
+          alt: 'Ферма игровых аккаунтов',
           textures: [
             {
               srcSet: [sliceTexture, sliceTextureLarge],
