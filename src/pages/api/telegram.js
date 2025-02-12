@@ -1,19 +1,28 @@
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
-    return res.status(405).json({ message: 'Method not allowed' });
+    return res.status(405).json({ 
+      success: false,
+      message: 'Method not allowed' 
+    });
   }
 
   const { email, message } = req.body;
 
   if (!email || !message) {
-    return res.status(400).json({ message: 'Missing required fields' });
+    return res.status(400).json({ 
+      success: false,
+      message: 'Missing required fields' 
+    });
   }
 
   const botToken = process.env.TELEGRAM_BOT_TOKEN;
   const chatId = process.env.TELEGRAM_CHAT_ID;
 
   if (!botToken || !chatId) {
-    return res.status(500).json({ message: 'Missing Telegram configuration' });
+    return res.status(500).json({ 
+      success: false,
+      message: 'Server configuration error' 
+    });
   }
 
   try {
@@ -34,23 +43,21 @@ export default async function handler(req, res) {
       }),
     });
 
-    if (!response.ok) {
-      const errorData = await response.json();
-      throw new Error(errorData.description || 'Failed to send message');
-    }
-
     const data = await response.json();
-    
-    if (!data.ok) {
-      throw new Error(data.description || 'Telegram API error');
+
+    if (!response.ok || !data.ok) {
+      throw new Error(data.description || 'Failed to send message');
     }
 
-    return res.status(200).json({ success: true });
+    return res.status(200).json({ 
+      success: true,
+      message: 'Message sent successfully'
+    });
   } catch (error) {
     console.error('Error sending message:', error);
     return res.status(500).json({ 
       success: false,
-      message: error.message || 'Error sending message'
+      message: 'Error sending message to Telegram'
     });
   }
 }
