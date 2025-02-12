@@ -1,8 +1,8 @@
 import { Button } from 'components/Button';
 import { DecoderText } from 'components/DecoderText';
 import { Divider } from 'components/Divider';
-import { Footer } from 'components/Footer';
 import { Heading } from 'components/Heading';
+import { Icon } from 'components/Icon';
 import { Input } from 'components/Input';
 import { Meta } from 'components/Meta';
 import { Section } from 'components/Section';
@@ -20,11 +20,13 @@ export const Contact = () => {
   const message = useFormInput('');
   const [sending, setSending] = useState(false);
   const [complete, setComplete] = useState(false);
+  const [statusError, setStatusError] = useState('');
   const initDelay = tokens.base.durationS;
 
   const onSubmit = async event => {
     event.preventDefault();
-    
+    setStatusError('');
+
     if (sending) return;
 
     try {
@@ -41,15 +43,17 @@ export const Contact = () => {
         }),
       });
 
+      const responseMessage = await response.json();
+
       if (!response.ok) {
-        throw new Error('Failed to send message');
+        throw new Error(responseMessage.message);
       }
 
       setComplete(true);
       setSending(false);
     } catch (error) {
       setSending(false);
-      console.error(error);
+      setStatusError(error.message || 'Произошла ошибка при отправке сообщения');
     }
   };
 
@@ -98,6 +102,24 @@ export const Contact = () => {
               maxLength={4096}
               {...message}
             />
+            <Transition in={statusError} timeout={msToNum(tokens.base.durationM)}>
+              {errorVisible => (
+                <div
+                  className={styles.formError}
+                  data-status={status}
+                  data-visible={errorVisible}
+                  style={getDelay(tokens.base.durationXS, initDelay)}
+                  role="alert"
+                >
+                  <div className={styles.formErrorContent}>
+                    <div className={styles.formErrorMessage}>
+                      <Icon className={styles.formErrorIcon} icon="error" />
+                      {statusError}
+                    </div>
+                  </div>
+                </div>
+              )}
+            </Transition>
             <Button
               className={styles.button}
               data-status={status}
