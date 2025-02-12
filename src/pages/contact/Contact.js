@@ -44,18 +44,18 @@ export const Contact = () => {
         }),
       });
 
-      const data = await response.json().catch(() => null);
+      const data = await response.json();
 
       if (!response.ok || !data?.success) {
         throw new Error(data?.message || 'Произошла ошибка при отправке сообщения');
       }
 
       setComplete(true);
-      setSending(false);
     } catch (error) {
       console.error('Form error:', error);
-      setSending(false);
       setStatusError(error.message || 'Произошла ошибка при отправке сообщения');
+    } finally {
+      setSending(false);
     }
   };
 
@@ -104,7 +104,7 @@ export const Contact = () => {
               maxLength={4096}
               {...message}
             />
-            <Transition in={statusError} timeout={msToNum(tokens.base.durationM)}>
+            <Transition in={!!statusError} timeout={msToNum(tokens.base.durationM)}>
               {errorVisible => (
                 <div
                   className={styles.formError}
