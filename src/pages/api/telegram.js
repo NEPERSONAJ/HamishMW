@@ -27,17 +27,21 @@ export default async function handler(req, res) {
       body: JSON.stringify({
         chat_id: chatId,
         text: telegramMessage,
-        parse_mode: 'HTML',
       }),
     });
 
-    if (!response.ok) {
-      throw new Error('Failed to send telegram message');
+    const data = await response.json();
+
+    if (!response.ok || !data.ok) {
+      throw new Error(data.description || 'Failed to send telegram message');
     }
 
-    res.status(200).json({ message: 'Message sent successfully' });
+    return res.status(200).json({ success: true });
   } catch (error) {
     console.error('Error sending message:', error);
-    res.status(500).json({ message: 'Error sending message' });
+    return res.status(500).json({ 
+      success: false,
+      message: error.message || 'Error sending message'
+    });
   }
 }
