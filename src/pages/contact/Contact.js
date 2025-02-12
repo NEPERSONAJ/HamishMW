@@ -44,15 +44,16 @@ export const Contact = () => {
         }),
       });
 
-      const data = await response.json();
+      const data = await response.json().catch(() => null);
 
-      if (!response.ok || !data.success) {
-        throw new Error(data.message || 'Произошла ошибка при отправке сообщения');
+      if (!response.ok || !data?.success) {
+        throw new Error(data?.message || 'Произошла ошибка при отправке сообщения');
       }
 
       setComplete(true);
       setSending(false);
     } catch (error) {
+      console.error('Form error:', error);
       setSending(false);
       setStatusError(error.message || 'Произошла ошибка при отправке сообщения');
     }
