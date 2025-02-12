@@ -2,6 +2,9 @@ module.exports = {
   reactStrictMode: true,
   trailingSlash: true,
   pageExtensions: ['page.js', 'api.js'],
+  experimental: {
+    runtime: 'nodejs',
+  },
   webpack(config, { isServer }) {
     // Run custom scripts
     if (isServer) {
