@@ -44,10 +44,10 @@ export const Contact = () => {
         }),
       });
 
-      const responseMessage = await response.json();
+      const data = await response.json();
 
-      if (!response.ok) {
-        throw new Error(responseMessage.message);
+      if (!response.ok || !data.success) {
+        throw new Error(data.message || 'Произошла ошибка при отправке сообщения');
       }
 
       setComplete(true);
