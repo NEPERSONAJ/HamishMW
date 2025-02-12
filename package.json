@@ -37,6 +37,7 @@
   },
   "dependencies": {
     "@emailjs/browser": "^4.1.0",
+    "@vercel/og": "^0.6.2",
     "chrome-aws-lambda": "^6.0.0",
     "framer-motion": "^7.1.0",
     "mdx-bundler": "^9.0.1",
