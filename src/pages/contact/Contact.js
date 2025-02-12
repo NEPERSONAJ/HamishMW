@@ -33,7 +33,6 @@ export const Contact = () => {
     try {
       setSending(true);
 
-      // Изменен URL с /api/telegram/ на /api/telegram
       const response = await fetch('/api/telegram', {
         method: 'POST',
         headers: {
