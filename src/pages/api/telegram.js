@@ -15,6 +15,9 @@ export default async function handler(req) {
         status: 405,
         headers: {
           'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*',
+          'Access-Control-Allow-Methods': 'POST, OPTIONS',
+          'Access-Control-Allow-Headers': 'Content-Type'
         }
       }
     );
@@ -33,6 +36,7 @@ export default async function handler(req) {
           status: 400,
           headers: {
             'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*'
           }
         }
       );
@@ -51,6 +55,7 @@ export default async function handler(req) {
           status: 500,
           headers: {
             'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*'
           }
         }
       );
@@ -89,6 +94,7 @@ export default async function handler(req) {
         status: 200,
         headers: {
           'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*'
         }
       }
     );
@@ -103,6 +109,7 @@ export default async function handler(req) {
         status: 500,
         headers: {
           'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*'
         }
       }
     );
