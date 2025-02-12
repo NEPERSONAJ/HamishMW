@@ -1,15 +1,10 @@
+import { ImageResponse } from '@vercel/og';
 import { createHash } from 'crypto';
 import fs from 'fs';
 import path from 'path';
 
 export async function generateOgImage(props) {
   const { title, date } = props;
-
-  // Create URL-safe query parameters
-  const params = new URLSearchParams({
-    title,
-    date: date || '',
-  });
 
   const hash = createHash('md5').update(title).digest('hex');
   const ogImageDir = path.join(process.cwd(), 'public/og');
@@ -25,16 +20,80 @@ export async function generateOgImage(props) {
     fs.statSync(imagePath);
     return publicPath;
   } catch (error) {
-    // Generate image if it doesn't exist
-    const response = await fetch(
-      `${process.env.NEXT_PUBLIC_WEBSITE_URL}/api/og?${params.toString()}`
+    // Load fonts
+    const fontMedium = fs.readFileSync(
+      path.join(process.cwd(), 'src/assets/fonts/gotham-medium.woff2')
+    );
+    const fontBook = fs.readFileSync(
+      path.join(process.cwd(), 'src/assets/fonts/gotham-book.woff2')
     );
 
-    if (!response.ok) {
-      throw new Error(`Failed to generate OG image: ${response.statusText}`);
-    }
+    // Generate image
+    const imageResponse = new ImageResponse(
+      (
+        <div
+          style={{
+            height: '100%',
+            width: '100%',
+            display: 'flex',
+            flexDirection: 'column',
+            backgroundColor: '#111111',
+            padding: '60px',
+          }}
+        >
+          {date && (
+            <div
+              style={{
+                color: '#00e5ff',
+                fontSize: '32px',
+                fontFamily: 'Gotham',
+                fontWeight: 400,
+                marginBottom: '40px',
+              }}
+            >
+              {new Date(date).toLocaleDateString('default', {
+                year: 'numeric',
+                month: 'long',
+                day: '2-digit',
+              })}
+            </div>
+          )}
+          <div
+            style={{
+              color: '#ffffff',
+              fontSize: '60px',
+              fontFamily: 'Gotham',
+              fontWeight: 500,
+              lineHeight: 1.2,
+              whiteSpace: 'pre-wrap',
+            }}
+          >
+            {title}
+          </div>
+        </div>
+      ),
+      {
+        width: 1200,
+        height: 630,
+        fonts: [
+          {
+            name: 'Gotham',
+            data: fontMedium,
+            weight: 500,
+            style: 'normal',
+          },
+          {
+            name: 'Gotham',
+            data: fontBook,
+            weight: 400,
+            style: 'normal',
+          },
+        ],
+      }
+    );
 
-    const buffer = await response.arrayBuffer();
+    // Convert response to buffer and save
+    const buffer = await imageResponse.arrayBuffer();
     fs.writeFileSync(imagePath, Buffer.from(buffer));
 
     return publicPath;
