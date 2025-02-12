@@ -13,42 +13,43 @@ import { useFormInput } from 'hooks';
 import { useRef, useState } from 'react';
 import { cssProps, msToNum, numToMs } from 'utils/style';
 import styles from './Contact.module.css';
-import emailjs from '@emailjs/browser';
 
 export const Contact = () => {
   const form = useRef();
   const email = useFormInput('');
   const message = useFormInput('');
-
   const [sending, setSending] = useState(false);
   const [complete, setComplete] = useState(false);
   const initDelay = tokens.base.durationS;
 
   const onSubmit = async event => {
     event.preventDefault();
-
+    
     if (sending) return;
 
     try {
       setSending(true);
-      console.log('Email:', email.value);
-      console.log('Message:', message.value);
 
-      const templateParams = {
-        user_email: email.value,
-        message: message.value,
-      };
+      const response = await fetch('/api/telegram', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email: email.value,
+          message: message.value,
+        }),
+      });
 
-      emailjs.send('service_287rj0h', 'template_sc4smdw', templateParams, 'n2b5zA8w4AP1UL4oS')
-        .then(res => {
-          console.log(res);
-        });
+      if (!response.ok) {
+        throw new Error('Failed to send message');
+      }
 
       setComplete(true);
       setSending(false);
     } catch (error) {
-      console.error('Error:', error);
       setSending(false);
+      console.error(error);
     }
   };
 
@@ -79,7 +80,6 @@ export const Contact = () => {
               required
               className={styles.input}
               data-status={status}
-              name="user_email"
               style={getDelay(tokens.base.durationXS, initDelay)}
               autoComplete="email"
               label="Ваш электронный адрес"
@@ -95,7 +95,6 @@ export const Contact = () => {
               style={getDelay(tokens.base.durationS, initDelay)}
               autoComplete="off"
               label="Сообщение"
-              name="message"
               maxLength={4096}
               {...message}
             />
