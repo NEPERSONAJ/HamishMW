@@ -17,7 +17,11 @@ export default async function handler(req, res) {
   }
 
   try {
-    const telegramMessage = `💌 Новое сообщение с сайта\n\n📧 Email: ${email}\n\n💬 Сообщение:\n${message}`;
+    // Экранируем специальные символы
+    const escapedEmail = email.replace(/[_*[\]()~`>#+=|{}.!-]/g, '\\$&');
+    const escapedMessage = message.replace(/[_*[\]()~`>#+=|{}.!-]/g, '\\$&');
+    
+    const telegramMessage = `Новое сообщение с сайта\n\nEmail: ${escapedEmail}\n\nСообщение:\n${escapedMessage}`;
     
     const response = await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
       method: 'POST',
@@ -26,14 +30,19 @@ export default async function handler(req, res) {
       },
       body: JSON.stringify({
         chat_id: chatId,
-        text: telegramMessage,
+        text: telegramMessage
       }),
     });
 
-    const data = await response.json();
+    if (!response.ok) {
+      const errorData = await response.json();
+      throw new Error(errorData.description || 'Failed to send message');
+    }
 
-    if (!response.ok || !data.ok) {
-      throw new Error(data.description || 'Failed to send telegram message');
+    const data = await response.json();
+    
+    if (!data.ok) {
+      throw new Error(data.description || 'Telegram API error');
     }
 
     return res.status(200).json({ success: true });
