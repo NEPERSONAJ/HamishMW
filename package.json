@@ -1,6 +1,6 @@
 {
   "name": "portfolio",
-  "homepage": "https://nepersonaj.ru",
+  "homepage": "https://hamishw.com",
   "description": "Portfolio site for Hamish Williams",
   "repository": "https://github.com/HamishMW/portfolio.git",
   "author": "Hamish Williams",
@@ -29,7 +29,9 @@
     "rehype-img-size": "^1.0.1",
     "rehype-slug": "^6.0.0",
     "three": "^0.161.0",
-    "three-stdlib": "^2.29.4"
+    "three-stdlib": "^2.29.4",
+    "vite": "^5.1.0",
+    "vite-jsconfig-paths": "^2.0.1"
   },
   "devDependencies": {
     "@csstools/postcss-global-data": "^2.1.1",
@@ -57,7 +59,8 @@
     "prop-types": "^15.8.1",
     "remark-frontmatter": "^5.0.0",
     "remark-mdx-frontmatter": "^4.0.0",
-    "storybook": "^7.6.17"
+    "storybook": "^7.6.17",
+    "@vitejs/plugin-react": "^4.2.1"
   },
   "engines": {
     "node": ">=19.9.0"
