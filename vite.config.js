@@ -15,6 +15,9 @@ export default defineConfig({
   assetsInclude: ['**/*.glb', '**/*.hdr', '**/*.glsl'],
   build: {
     assetsInlineLimit: 1024,
+    rollupOptions: {
+      external: ['@aws-sdk/client-ses']
+    }
   },
   server: {
     port: 7777,
