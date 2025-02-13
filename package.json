@@ -9,21 +9,21 @@
   "scripts": {
     "build": "remix vite:build",
     "dev": "node ./scripts/dev.cjs && remix vite:dev",
-    "start": "remix-serve ./build/server/index.js",
+    "start": "wrangler pages dev ./build/client",
     "postinstall": "node ./scripts/draco.cjs",
-    "deploy": "vercel deploy --prod",
+    "deploy": "npm run build && wrangler pages deploy ./build/client",
     "dev:storybook": "storybook dev -p 6006",
     "build:storybook": "storybook build",
-    "deploy:storybook": "vercel deploy storybook-static --prod"
+    "deploy:storybook": "wrangler pages deploy ./storybook-static --project-name portfolio-storybook --branch main"
   },
   "dependencies": {
-    "@vercel/node": "^3.0.17",
     "@mdx-js/react": "^3.0.1",
+    "@remix-run/cloudflare": "^2.7.1",
+    "@remix-run/cloudflare-pages": "^2.7.1",
     "@remix-run/react": "^2.7.1",
-    "@remix-run/vercel": "^2.7.1",
-    "@remix-run/serve": "^2.7.1",
     "framer-motion": "11.0.5",
     "isbot": "^4.1.0",
+    "miniflare": "^3.20231030.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "rehype-img-size": "^1.0.1",
@@ -60,7 +60,8 @@
     "remark-frontmatter": "^5.0.0",
     "remark-mdx-frontmatter": "^4.0.0",
     "storybook": "^7.6.17",
-    "@vitejs/plugin-react": "^4.2.1"
+    "@vitejs/plugin-react": "^4.2.1",
+    "wrangler": "^3.24.0"
   },
   "engines": {
     "node": ">=19.9.0"
