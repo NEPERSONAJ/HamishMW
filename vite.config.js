@@ -2,6 +2,7 @@ import {
   vitePlugin as remix,
 } from '@remix-run/dev';
 import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
 import jsconfigPaths from 'vite-jsconfig-paths';
 import mdx from '@mdx-js/rollup';
 import remarkFrontmatter from 'remark-frontmatter';
@@ -19,6 +20,7 @@ export default defineConfig({
     port: 7777,
   },
   plugins: [
+    react(),
     mdx({
       rehypePlugins: [[rehypeImgSize, { dir: 'public' }], rehypeSlug, rehypePrism],
       remarkPlugins: [remarkFrontmatter, remarkMdxFrontmatter],
